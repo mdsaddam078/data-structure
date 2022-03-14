@@ -1,0 +1,35 @@
+#include<iostream.h> #include<conio.h>
+
+int binarySearch(int al], int n,int x)
+
+int left = 0; // left end of segment int right = n-1; // right end of segment
+
+while (left <= right)
+
+int middle (left + right)/2; // middle of segment
+
+if (x == a[middle]) return middle;
+
+if (x > a[lmiddle]) left = middle + 1;
+
+else right = middle-1;
+
+} return -1; // x not found)
+
+}
+
+int main()
+
+Int a[10]-(2,5,9,11,12,46,77,80,95,100); //sorted list int s;
+
+cout<<"enter the element to search:";
+
+cin>>s;
+
+int f-binarySearch(a,10,s); if(f ==-1)
+
+cout<<"element not found"; else
+
+cout<<"element found at index: "<<f;
+
+}
