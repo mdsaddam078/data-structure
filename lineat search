@@ -1,0 +1,32 @@
+/*
+Linear Search Code (C++ Pattern Programs Free)
+*/
+
+
+ #include<iostream.h>
+ #include<conio.h>
+ 
+ void main()
+ {
+ clrscr();
+ int arr[10]={12,22,33,21,56,76,55,89,87,11};
+ int search,found=0;
+  cout<<"Enter No. to be Searched : ";
+  cin>>search;
+ 
+  for(int i=0;i<10;i++)
+  {
+  if(arr[i]==search)
+  {
+  found=1;
+  cout<<"No. Is Found at index ["<<i<<"]";
+  break;
+  }
+  }
+ 
+  if(found ==0 )
+  {
+  cout<<"No. Not Found";
+  }
+  getch();
+ }
