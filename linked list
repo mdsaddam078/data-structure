@@ -1,0 +1,146 @@
+#include<iostream.h>
+ #include<stdlib.h>
+ 
+ int size_counter();
+ 
+ struct node
+ {
+      int data;
+      struct node *next;
+ }*start;
+ 
+ 
+ 
+ void insertEnd(int num)
+ {
+      struct node *temp,*right;
+      temp= (struct node *)malloc(sizeof(struct node;
+      temp->data=num;
+      right=(struct node *)start;
+      while(right->next != NULL)
+      right=right->next;
+      right->next =temp;
+      right=temp;
+      right->next=NULL;
+ }
+ 
+ 
+ 
+ void insertBegin( int num )
+ {
+      struct node *temp;
+      temp=(struct node *)malloc(sizeof(struct node;
+      temp->data=num;
+      if (start== NULL)
+      {
+      start=temp;
+      start->next=NULL;
+      }
+      else
+      {
+      temp->next=start;
+      start=temp;
+      }
+ }
+ void insertSepc(int num, int loc)
+ {
+      int i;
+      struct node *temp,*left,*right;
+      right=start;
+ 
+      if(loc<=1)
+      {
+      insertBegin(num);
+      return;
+      }
+ 
+      for(i=1;i<loc;i++)
+      {
+      left=right;
+      right=right->next;
+ 
+      if(right==NULL)
+      {
+      insertEnd(num);
+      return;
+      }
+      }
+      temp=(struct node *)malloc(sizeof(struct node;
+      temp->data=num;
+      temp->next=left->next;
+      left->next=temp;
+ 
+ 
+ }
+ 
+ 
+ 
+ int delete_start()
+ {
+  struct node *temp;
+  if(start==NULL)return 0;
+  else
+  {
+  temp=start;
+  start=start->next;
+  cout<<"No deleted is "<<temp->data;
+  return 1;
+  }
+ }
+ 
+ 
+ int delete_end()
+ {
+  struct node *temp,*prev;
+  if(start==NULL)return 0;
+   else if((start)->next==NULL)
+  {
+  temp=start;
+  start=NULL;
+  cout<<"No deleted is %d",temp->data;
+  return 1;
+  }
+  else
+  {
+  prev=start;
+  temp=start->next;
+ while(temp->next!=NULL)
+ {
+ prev=temp;
+ temp=temp->next;
+ }
+ prev->next=NULL;
+ cout<<"No deleted is %d",temp->data;
+ return 1;
+  }
+ }
+ 
+ int delete_item(int num)
+ {
+      struct node *temp, *prev;
+      temp=start;
+ while(temp!=NULL)
+ {
+ if(temp->data==num)
+ {
+  if(temp==start)
+  {
+  start=temp->next;
+  free(temp);
+  return 1;
+  }
+  else
+  {
+  prev->next=temp->next;
+  free(temp);
+  return 1;
+  }
+      }
+      else
+      {
+           prev=temp;
+           temp= temp->next;
+      }
+      }
+      return 0;
+ }
