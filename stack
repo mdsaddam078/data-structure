@@ -1,0 +1,129 @@
+/*
+Stack Code (C++ Pattern Programs Free)
+*/
+
+
+ /*
+ 
+ Stack is a linear data structure in which insertion and 
+ deletion of the elements is done from only one end, (known 
+ as top of stack), i.e. the last added element will be the 
+ first to be removed from the stack. 
+ 
+ LIFO (Last-in-First-out)
+ 
+ */
+ 
+ #include<iostream.h>
+ #include<conio.h>
+ 
+ 
+ #define size 5
+ 
+ /* stack structure*/
+ struct stack  {
+ int s[size];
+ int top;
+ }st;
+ 
+ int stackFull()
+ {
+  if(st.top>=size-1)
+ return 1;
+  else
+   return 0;
+ }
+ 
+ int stackEmpty()
+ {
+  if(st.top==-1)
+   return 1;
+  else
+   return 0;
+ }
+ 
+ 
+ void push(int item)
+ {
+  st.top++;
+  st.s[st.top] =item;
+ }
+ 
+ int pop()
+ {
+  int item;
+  item=st.s[st.top];
+  st.top --;
+  return(item);
+ }
+ 
+ void display()
+ {
+  int i;
+  if(stackEmpty())
+     cout<<"\n Stack Is Empty!";
+  else
+  {
+   cout<<"\nElements of Stack : ";
+   for(i=st.top;i>=0;i--)
+   cout<<" "<<st.s[i];
+  }
+ }
+ 
+ /------Main Function-----/
+ 
+ void main()
+ {
+ int item,ch;
+ 
+ st.top=-1;
+ 
+ clrscr();
+ 
+ cout<<"\n Stack Implementation";
+ do
+ {
+  cout<<"\n\n Main Menu";
+  cout<<"\n 1 : Push";
+  cout<<"\n 2 : Pop";
+  cout<<"\n 3 : Display";
+  cout<<"\n 4 : Exit";
+ 
+  cout<<"\n Select Operation : ";
+  cin>>ch;
+ 
+  switch(ch)
+  {
+ case 1:
+  cout<<"\n Enter the item to be pushed : ";
+  cin>>item;
+ 
+  if(stackFull())
+   cout<<"\n Stack is Full (Overflow)";
+  else
+   push(item);
+ 
+  break;
+ 
+ case 2:
+ if(stackEmpty())
+ {
+  cout<<"\n Stack is Empty (Underflow)";
+ }
+ else
+  {
+ item=pop();
+ cout<<"\n The popped element is "<<item;
+  }
+ break;
+ 
+ case 3: display();
+                     break;
+ case 4:
+   cout<<"End of Program...";
+ 
+ }
+  }while(ch!=4);
+ getch();
+ }
+ 
